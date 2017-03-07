@@ -1,0 +1,12 @@
+function touchMe()
+    touchPin = 1
+    gpio.mode(touchPin, gpio.INPUT)
+    touchStatus = gpio.read(1)
+    if (touchStatus == 1) then
+        print("Touched")
+	else
+		print("Not Touched")
+    end
+end
+
+tmr.alarm(0, 100, 1, touchMe)
